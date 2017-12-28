@@ -30,8 +30,10 @@
                 //Get google_cid value
                 var urlParams = new URLSearchParams(window.location.search);
                 var passedGoogle_cid = urlParams.get('google_cid');
-
-                createCookie('_ga', passedGoogle_cid, 30);
+                if(passedGoogle_cid){
+                createCookie('_ga', passedGoogle_cid, 30);    
+                }
+                
             </script>
         </div>
   
