@@ -1,0 +1,24 @@
+<div>
+    <h1>iFrame Window</h1>
+    <script type="text/javascript">
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + "; path=/";
+        }
+
+        //Get google_cid value
+        var urlParams = new URLSearchParams(window.location.search);
+        var passedGoogle_cid = urlParams.get('google_cid');
+
+        createCookie('_ga', passedGoogle_cid, 30);
+        parent.postMessage(readCookie('testCookie'), "http://localhost:8541/");
+    </script>
+</div>
+
+
+
