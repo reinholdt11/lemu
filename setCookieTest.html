@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>title</title>
         <script type="text/javascript">
+
+                var AtcoreTest = true;
+
                 function createCookie(name, value, days) {
                     if (days) {
                         var date = new Date();
@@ -14,12 +18,19 @@
                     document.cookie = name + "=" + value + expires + "; path=/";
                 }
 
-                //Get google_cid value
-                var urlParams = new URLSearchParams(window.location.search);
-                var passedGoogle_cid = urlParams.get('google_cid');
-                
-                if(passedGoogle_cid){
-                        createCookie('partner-cid', passedGoogle_cid, 30);    
+                if(AtcoreTest){
+                    console.log("test");
+                    passedUser_id = "UserID|"+intval( "0" . rand(1,9) . rand(0,9) . rand(0,9) . rand(0,9) . rand(0,9) );
+                } else{
+                    //Get google_cid value
+                    var urlParams = new URLSearchParams(window.location.search);
+                    var passedUser_id = urlParams.get('partner-info');
+                    console.log("NOT test");
+               }
+
+                if(passedUser_id){
+
+                        createCookie('Login User ID', passedUser_id, 90);    
                 }
                 
             </script>
